@@ -6,7 +6,7 @@ pipeline {
         course = "gcp-devops"
     }
     stages {
-        stage('Build') {
+        stage('sonar') {
             // only  this stage level this environmental not assigned to other stages 
             environment {
                 cloud = "amazon"
