@@ -1,25 +1,20 @@
 pipeline {
-    agent any
+    agent any 
+    environment {
+        name = "Chubby"
+        course = "gcp-devops"
+    }
     stages {
-        stage('build') {
-            steps {
-                echo "build the src appplication"
+        stage('Build') {
+            environment {
+                cloud = "amazon"
             }
-        }
-        stage('sonar') {
             steps {
-                echo "check the codeqaulity and passes the result throughj qauality gates"
-            }
-        }
-        stage('docker') {
-            steps {
-                echo "yes you finish the container"
-            }
-        }
-        stage('k8s') {
-            steps {
-                echo "master and workernode succesfully maintained"
+                echo "my name is ${name}"
+                echo "you are learning ${course}"
+                echo "one of the cloud provider is ${cloud}"
             }
         }
     }
+    
 }
