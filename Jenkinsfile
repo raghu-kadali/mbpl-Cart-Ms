@@ -1,12 +1,9 @@
-pipeline {
-    agent any 
-    //global levell acces to each stage
-    environment {
+environment {
         name = "Chubby"
-        course = "gcp-devops"
+        cloud = "gcp-devops"
     }
-    stages {
-        stage('sonar') {
+        stages {
+        stage('Build') {
             // only  this stage level this environmental not assigned to other stages 
             environment {
                 cloud = "amazon"
@@ -17,14 +14,7 @@ pipeline {
                 echo "one of the cloud provider is ${cloud}"
             }
         }
-        stage('Build') {
-            // only  this stage level this environmental not assigned to other stages 
-            steps {
-                echo "my name is ${name}"
-                echo "you are learning ${course}"
-                echo "one of the cloud provider is ${cloud}" //its not display it is in top stages
-            }
-        }
+      
     }
     
 }
