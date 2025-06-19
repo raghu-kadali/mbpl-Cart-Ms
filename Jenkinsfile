@@ -1,4 +1,7 @@
-environment {
+pipeline {
+    agent any 
+    //global levell acces to each stage
+    environment {
         name = "Chubby"
         cloud = "gcp-devops"
     }
@@ -16,4 +19,5 @@ environment {
         }
       
     }
+    
 }
