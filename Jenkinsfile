@@ -10,7 +10,7 @@ pipeline {
             }
             steps {
                 echo "my name is ${cloud}"
-                echo "my branch name is ${env.BUILD_NUMBER}
+                echo "my branch name is ${env.BUILD_NUMBER}"
             }
         }
     }
