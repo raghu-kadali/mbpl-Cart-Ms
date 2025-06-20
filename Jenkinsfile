@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
     agent any 
     stages {
         stage('dev envirnment') {
@@ -6,10 +6,12 @@ pipeline {
                 branch 'main'
             }
             
-        }
         steps {
              echo "run in maqin branch"
         }
+        }
     }
  }
+
+
 
