@@ -1,19 +1,15 @@
 pipeline {
-    agent any
-    environment {
-        DEPLOY_TO = 'production'
-      //  production = "good"
-    }
+    agent any 
     stages {
-        stage('deployment') {
-            when {
-                environment name: 'DEPLOY_TO', value: 'production'
-              //  environment name: "production", value: "god"
+        stage('dev envirnment') {
+            when{
+                branch 'main'
             }
-            steps {
-                echo "deployimg the production"
-                echo "if gd you can go"
-            }
+            
+        }
+        steps {
+             echo "run in maqin branch"
         }
     }
  }
+
