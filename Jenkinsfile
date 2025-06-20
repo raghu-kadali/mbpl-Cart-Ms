@@ -1,16 +1,14 @@
- pipeline {
+pipeline {
     agent any 
+    environment {
+        envi ='pre-prod'
+    }
     stages {
-        stage('dev envirnment') {
-            when{
-                branch 'main'
+        stage('pre-prod') {
+            when {
+                environment name: 'envi', value: 'pre-prod'
             }
-            
-        steps {
-             echo "run in main branch"
-        }
         }
     }
- }
-
+}
 
