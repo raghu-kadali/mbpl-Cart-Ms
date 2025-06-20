@@ -4,7 +4,7 @@ pipeline {
         envi ='pre-prod'
     }
     stages {
-        stage('pre-prod') {
+        stage('pre') {
             when {
                 environment name: 'envi', value: 'pre-prod'
             }
