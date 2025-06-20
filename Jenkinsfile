@@ -9,7 +9,7 @@ pipeline {
                 environment name: 'envi', value: 'pre-prod'
             }
             steps {
-                echo print when its is succsful
+                echo print "when its is succsful"
             }
         }
     }
