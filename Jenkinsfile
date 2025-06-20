@@ -1,16 +1,25 @@
- pipeline {
+pipeline {
     agent any 
+    envirnment {
+        DEPLOY_TO = 'production'
+    }
     stages {
-        stage('dev envirnment') {
-            when{
-                branch 'main'
+        stage('deploy to dev') {
+            steps {
+                echo "deploy dev envi"
             }
-            
-        steps {
-             echo "run in maqin branch"
         }
+        stage('prod-deploy') {
+            when {
+                allOf {
+                      branch 'production'
+                environment name: 'DEPLOY_TO', value: 'production'
+                }
+              
+            }
+            steps {
+                echo "deploying to production environment"
+            }
         }
     }
- }
-
-
+}
