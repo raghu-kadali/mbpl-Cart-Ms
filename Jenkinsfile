@@ -8,9 +8,10 @@ pipeline {
             when {
                 equals expected: 'prod', actual:"${DEPLOY_TO}"
             }
-        }
-        steps {
+            steps {
             echo "it success print the production"
         }
+        }
+        
     }
 }
