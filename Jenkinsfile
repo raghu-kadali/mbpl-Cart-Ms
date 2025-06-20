@@ -7,7 +7,7 @@
             }
             
         steps {
-             echo "run in maqin branch"
+             echo "run in main branch"
         }
         }
     }
