@@ -1,25 +1,19 @@
-pipeline {
+ pipeline {
     agent any
+    environment {
+        DEPLOY_ TO = 'production'
+        production = "good"
+    }
     stages {
-        stage('build') {
-            steps {
-                echo "build the src appplication"
+        stage('deployment') {
+            when {
+                environment name: 'DEPLOY_TO', value: 'production'
+                environment name: "production", value: "god"
             }
-        }
-        stage('sonar') {
             steps {
-                echo "check the codeqaulity and passes the result throughj qauality gates"
-            }
-        }
-        stage('docker') {
-            steps {
-                echo "yes you finish the container"
-            }
-        }
-        stage('k8s') {
-            steps {
-                echo "master and workernode succesfully maintained"
+                echo "deployimg the production"
+                echo "if gd you can go"
             }
         }
     }
-}
+ }
