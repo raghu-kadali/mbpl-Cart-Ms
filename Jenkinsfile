@@ -11,9 +11,9 @@ pipeline {
         }
         stage('prod-deploy') {
             when {
-                allOf {
+                anyOf {
                       branch 'production'
-                environment name: 'DEPLOY_TO', value: 'Production'
+                environment name: 'DEPLOY_TO', value: 'productioneeeee'
                 }
               
             }
