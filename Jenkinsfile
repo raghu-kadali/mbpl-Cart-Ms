@@ -31,9 +31,9 @@ pipeline {
                  when {
                 branch 'release/*'
             }
+              echo "deploy to stage environment"
             }
            
-            echo "deploy to stage environment"
         }
         stage('production') {
             steps {
