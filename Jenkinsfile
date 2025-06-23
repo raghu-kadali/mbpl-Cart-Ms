@@ -27,12 +27,13 @@ pipeline {
             }
         }
         stage('deploy to stage') {
-            steps {
-                 when {
+            when {
                 branch 'release/*'
             }
-              echo "deploy to stage environment"
+            steps {
+                echo "deploy to stage "
             }
+        
            
         }
         stage('production') {
