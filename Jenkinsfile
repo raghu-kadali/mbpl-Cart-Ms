@@ -1,19 +1,41 @@
 pipeline {
-    agent any
-    environment {
-        DEPLOY_TO = 'production'
-    }
+    agent any 
     stages {
-        stage('production') {
-            when {
-                not {
-                    equals expected: 'prod', actual:"${DEPLOY_TO}"
-                }
-            }
+        stage('Build') {
             steps {
-            echo "it success print the production"
+                echo "build the application"
+            }
         }
+        stage('code analysis') {
+            steps {
+                echo "inspect the continuos code quality"
+            }
         }
-        
+        stage('Docker') {
+            steps {
+                echo "build the docker image then push into docker registry"
+            }
+        }
+        stage('Deploy to Dev') {
+            steps {
+                echo "Deploy to dev based on docker image the environment runs in container"
+            }
+        }
+        stage('deploy to test environment') {
+            steps {
+                echo "deploy and check code fumnctionality Api etc"
+            }
+        }
+        stage('deploy to stage') {
+            when {
+                branch 'release/*'
+            }
+            echo "deploy to stage environment"
+        }
+        stage('production') {
+            steps {
+                echo "go to alive to users"
+            }
+        }
     }
 }
