@@ -36,10 +36,20 @@ pipeline {
         
            
         }
-        stage('production') {
+        stage('deploy production') {
+            when {
+                //vx.x.x
+                //v1.2.3 is correct
+                //v.1.2.3 is wrong
+                //tag used stable code ,code freeze,no change code
+                tag pattern: "v\\d{1,2}.\\d{1,2}", comparator: "REGEXP"
+            }
             steps {
                 echo "go to alive to users"
             }
         }
     }
 }
+
+
+
